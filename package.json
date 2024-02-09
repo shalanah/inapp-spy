@@ -1,0 +1,37 @@
+{
+  "name": "inapp-spy",
+  "version": "1.0.0",
+  "description": "detect in-app browsers",
+  "author": "Shalanah Dawson",
+  "homepage": "https://shalanah.github.io/inapp-spy",
+  "license": "MIT",
+  "keywords": [
+    "inapp",
+    "detect",
+    "browser",
+    "spy"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "jest --coverage ./src"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.9",
+    "@babel/preset-env": "^7.23.9",
+    "@babel/preset-typescript": "^7.23.3",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.11.17",
+    "jest": "^29.7.0",
+    "semantic-release": "^23.0.2",
+    "ts-jest": "^29.1.2",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3"
+  }
+}
