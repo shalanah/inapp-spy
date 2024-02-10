@@ -1,6 +1,6 @@
 {
   "name": "inapp-spy",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "detect in-app browsers",
   "author": "Shalanah Dawson",
   "homepage": "https://github.com/shalanah/inapp-spy",
@@ -27,9 +27,8 @@
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "test": "jest --coverage ./src",
-    "release": "npm run build && changeset publish",
-    "ci:publish": "npm publish -r --access public && changeset tag",
-    "ci:version": "changeset version && npm install --no-frozen-lockfile"
+    "version": "yarn changeset version",
+    "release": "npm run build && changeset publish"
   },
   "devDependencies": {
     "@babel/core": "^7.23.9",

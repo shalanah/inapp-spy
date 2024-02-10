@@ -1,5 +1,16 @@
 # inapp-spy
 
+## 1.0.4
+
+### Patch Changes
+
+- Test out manual workflow
+- d781f07: More deploy testing
+- 223a227: More workflow testing
+- 07249f0: More workspace
+- dc91fba: Working on deploy setup
+- 2ab6131: more tests
+
 ## 1.0.3
 
 ### Patch Changes
