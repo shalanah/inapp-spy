@@ -18,7 +18,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup",
+    "build": "tsup src/index.ts --format cjs,esm --dts",
     "test": "jest --coverage ./src",
     "release": "npm run build && changeset publish",
     "ci:publish": "npm publish --access=public && changeset tag",
