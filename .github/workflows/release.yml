@@ -7,8 +7,7 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 permissions: {} # reset
 jobs:
   release:
-    # IMPORTANT: prevent this action from running on forks
-    if: github.repository == 'shalanah/inapp-spy'
+    if: github.repository == 'shalanah/inapp-spy' # IMPORTANT: prevent this action from running on forks
     permissions:
       contents: write # to create release (changesets/action)
       pull-requests: write # to create pull request (changesets/action)
@@ -21,11 +20,10 @@ jobs:
           registry-url: "https://registry.npmjs.org/"
           node-version-file: ".nvmrc"
           cache: "npm"
-      - run: npm install -g yarn
-      - run: yarn install
+      - run: npm install
       - name: Publish to npm
         id: changesets
-        run: yarn run ci:publish
+        run: npm run ci:publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
