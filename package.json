@@ -3,7 +3,7 @@
   "version": "1.0.2",
   "description": "detect in-app browsers",
   "author": "Shalanah Dawson",
-  "homepage": "https://shalanah.github.io/inapp-spy",
+  "homepage": "https://github.com/shalanah/inapp-spy",
   "license": "MIT",
   "keywords": [
     "inapp",
@@ -11,11 +11,11 @@
     "browser",
     "spy"
   ],
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "main": "index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "/dist"
   ],
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts",
