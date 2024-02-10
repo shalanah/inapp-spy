@@ -20,7 +20,7 @@
   "scripts": {
     "build": "tsup",
     "test": "jest --coverage ./src",
-    "release": "pnpm run build && changeset publish"
+    "release": "yarn run build && changeset publish"
   },
   "devDependencies": {
     "@babel/core": "^7.23.9",
