@@ -1,5 +1,11 @@
 # inapp-spy
 
+## 1.0.3
+
+### Patch Changes
+
+- 57d318b: Work on deployment
+
 ## 1.0.2
 
 ### Patch Changes
