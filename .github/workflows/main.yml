@@ -27,6 +27,5 @@ jobs:
           registry-url: "https://registry.npmjs.org/"
           node-version-file: ".nvmrc"
           cache: "npm"
-          registry-url: https://registry.npmjs.org/
       - run: yarn install
     # add your test, lint steps here
