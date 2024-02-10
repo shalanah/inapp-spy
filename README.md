@@ -18,22 +18,23 @@ const { isInApp, appName, ua } = InAppSpy();
 
 # API Reference
 
-```typescript
+```js
 InAppSpy(options: { ua?: string } | undefined)
 ```
 
 ### Options (optional)
 
-````typescript
+```js
 {
   ua?: string;
 }
+```
 
 ### Return properties
 
 ```js
 isInApp: boolean;
-````
+```
 
 ```js
 appName: "line" |
@@ -63,3 +64,7 @@ MIT License
 # Thanks
 
 `inapp-spy` is a fork of [`detect-inapp`](https://github.com/f2etw/detect-inapp) with modifications. This wouldn't exist without the original work of the `detect-inapp` contributors.
+
+```
+
+```
