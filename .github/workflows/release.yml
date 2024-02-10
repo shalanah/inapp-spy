@@ -4,10 +4,11 @@ on:
     branches:
       - main
 concurrency: ${{ github.workflow }}-${{ github.ref }}
-permissions: {} # reset
+permissions: {} #reset
 jobs:
   release:
-    if: github.repository == 'shalanah/inapp-spy' # IMPORTANT: prevent this action from running on forks
+    # IMPORTANT: prevent this action from running on forks
+    if: github.repository == 'barisbll/dummy-lib'
     permissions:
       contents: write # to create release (changesets/action)
       pull-requests: write # to create pull request (changesets/action)
@@ -17,10 +18,8 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          registry-url: https://registry.npmjs.org/
-          node-version-file: ".nvmrc"
-          cache: "npm"
-      - run: npm install
+          node-version: 20
+      - run: npm i
       - name: Publish to npm
         id: changesets
         uses: changesets/action@v1
