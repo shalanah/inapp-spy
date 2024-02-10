@@ -25,7 +25,7 @@ jobs:
       - run: yarn install
       - name: Publish to npm
         id: changesets
-        run: yarn run release
+        run: yarn run ci:publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
