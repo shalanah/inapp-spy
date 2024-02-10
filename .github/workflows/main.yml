@@ -11,22 +11,22 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 6.0.2
-      - run: pnpm i
+          registry-url: "https://registry.npmjs.org/"
+          node-version-file: ".nvmrc"
+          cache: "npm"
+      - run: npm install -g yarn
+      - run: yarn install
   install:
     needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 6.0.2
+      - run: npm install -g yarn
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
+          registry-url: "https://registry.npmjs.org/"
+          node-version-file: ".nvmrc"
+          cache: "npm"
           registry-url: https://registry.npmjs.org/
-      - run: pnpm i
+      - run: yarn install
     # add your test, lint steps here
