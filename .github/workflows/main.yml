@@ -1,0 +1,32 @@
+name: "CI"
+on:
+  pull_request:
+    branches:
+      - "**"
+      - "!main"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 6.0.2
+      - run: pnpm i
+  install:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 6.0.2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: https://registry.npmjs.org/
+      - run: pnpm i
+    # add your test, lint steps here

@@ -19,12 +19,14 @@
   ],
   "scripts": {
     "build": "tsup",
-    "test": "jest --coverage ./src"
+    "test": "jest --coverage ./src",
+    "release": "pnpm run build && changeset publish"
   },
   "devDependencies": {
     "@babel/core": "^7.23.9",
     "@babel/preset-env": "^7.23.9",
     "@babel/preset-typescript": "^7.23.3",
+    "@changesets/cli": "^2.27.1",
     "@types/jest": "^29.5.12",
     "@types/node": "^20.11.17",
     "jest": "^29.7.0",

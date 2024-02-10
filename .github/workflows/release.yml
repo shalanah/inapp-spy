@@ -1,0 +1,33 @@
+name: Release
+on:
+  push:
+    branches:
+      - main
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+permissions: {} #reset
+jobs:
+  release:
+    # IMPORTANT: prevent this action from running on forks
+    if: github.repository == 'shalanah/inapp-spy'
+    permissions:
+      contents: write # to create release (changesets/action)
+      pull-requests: write # to create pull request (changesets/action)
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 6.0.2
+      - run: pnpm i
+      - name: Publish to pnpm
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          publish: pnpm run release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
