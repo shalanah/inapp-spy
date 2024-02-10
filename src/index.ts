@@ -1,6 +1,8 @@
 import { getAppName, inappRegex } from "./regex";
 import { getUA } from "./utils";
 
+console.log("here -test");
+
 const InAppSpy = (options: { ua?: string } | undefined = {}) => {
   const { ua } = options;
   let userAgent = ua || getUA();
