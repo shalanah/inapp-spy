@@ -5,6 +5,13 @@
   "author": "Shalanah Dawson",
   "homepage": "https://github.com/shalanah/inapp-spy",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shalanah/inapp-spy/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shalanah/inapp-spy.git"
+  },
   "keywords": [
     "inapp",
     "detect",
@@ -21,7 +28,7 @@
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "test": "jest --coverage ./src",
     "release": "npm run build && changeset publish",
-    "ci:publish": "npm publish --access=public && changeset tag",
+    "ci:publish": "npm publish -r --access public && changeset tag",
     "ci:version": "changeset version && npm install --no-frozen-lockfile"
   },
   "devDependencies": {

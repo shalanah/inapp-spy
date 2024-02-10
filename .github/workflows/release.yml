@@ -24,7 +24,13 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          publish: npm run release
+          version: npm ci:version
+          commit: "chore: update versions"
+          title: "chore: update versions"
+
+          # https://github.com/changesets/action/issues/246
+          # https://github.com/changesets/changesets/pull/674
+          publish: npm ci:publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
