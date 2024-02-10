@@ -27,7 +27,7 @@
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "test": "jest --coverage ./src",
-    "version": "yarn changeset version",
+    "versioning": "yarn changeset version",
     "release": "npm run build && changeset publish"
   },
   "devDependencies": {
@@ -38,6 +38,7 @@
     "@types/jest": "^29.5.12",
     "@types/node": "^20.11.17",
     "jest": "^29.7.0",
+    "prettier": "^3.2.5",
     "semantic-release": "^23.0.2",
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",

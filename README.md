@@ -58,3 +58,14 @@ MIT License
 # Thanks
 
 `inapp-spy` is a fork of [`detect-inapp`](https://github.com/f2etw/detect-inapp) with modifications. This wouldn't exist without the original work of the `detect-inapp` contributors.
+
+# Publishing Workflow
+
+- Create a PR
+- TODO: Need to make sure PR passes all checks (lint + tests)
+- Include changeset in PR if needed (bot)
+- Merge PR
+- On main...
+- Run `yarn versioning` to bump version
+- Run `yarn publish` to publish to npm
+- Run `git push origin main --tags` to push code + tags
