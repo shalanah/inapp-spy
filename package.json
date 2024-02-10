@@ -21,8 +21,8 @@
     "build": "tsup",
     "test": "jest --coverage ./src",
     "release": "yarn run build && changeset publish",
-    "ci:publish": "yarn publish -r --access public && changeset tag",
-    "ci:version": "changeset version && pnpm install --no-frozen-lockfile"
+    "ci:publish": "yarn publish --access=public && changeset tag",
+    "ci:version": "changeset version && yarn install --no-frozen-lockfile"
   },
   "devDependencies": {
     "@babel/core": "^7.23.9",
