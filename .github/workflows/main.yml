@@ -14,18 +14,16 @@ jobs:
           registry-url: "https://registry.npmjs.org/"
           node-version-file: ".nvmrc"
           cache: "npm"
-      - run: npm install -g yarn
-      - run: yarn install
+      - run: npm install
   install:
     needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: npm install -g yarn
       - uses: actions/setup-node@v3
         with:
           registry-url: "https://registry.npmjs.org/"
           node-version-file: ".nvmrc"
           cache: "npm"
-      - run: yarn install
+      - run: npm install
     # add your test, lint steps here
