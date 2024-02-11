@@ -42,7 +42,7 @@ Recognized app key with in-app browser
 
 Can be `undefined` if `isInApp: true`.
 
-## appName
+### appName
 
 Pretty printed app name ie: `tiktok` is `TikTok`. Subject to change,
 

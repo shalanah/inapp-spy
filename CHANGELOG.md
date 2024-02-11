@@ -1,5 +1,11 @@
 # inapp-spy
 
+## 2.0.1
+
+### Patch Changes
+
+- 0f5d5a6: Update readme for package
+
 ## 2.0.0
 
 ### Major Changes
