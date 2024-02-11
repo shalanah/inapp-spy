@@ -1,5 +1,11 @@
 # inapp-spy
 
+## 2.0.0
+
+### Major Changes
+
+- 166ce90: `appName` is not a pretty printed version of found app and `appKey` is the former `appName`
+
 ## 1.0.7
 
 ### Patch Changes
