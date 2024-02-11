@@ -62,7 +62,6 @@ MIT License
 # Publishing Workflow
 
 - Create a PR
-- TODO: Need to make sure PR passes all checks (lint + tests)
 - Include changeset in PR if needed (bot)
 - Merge PR
 - On main...
