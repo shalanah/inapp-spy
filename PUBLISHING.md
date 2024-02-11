@@ -3,7 +3,8 @@
 - Create a PR
 - Include changeset in PR if needed (bot)
 - Merge PR
-- On main...
+- Checkout `main` branch
 - Run `yarn versioning` to bump version
+- Add files (same commit), `git push`
 - Run `yarn release` to publish to npm
-- Run `git push origin main --tags` to push code + tags
+- `git push origin --tags` 
