@@ -1,5 +1,11 @@
 # inapp-spy
 
+## 1.0.5
+
+### Patch Changes
+
+- c18d453: Release testing
+
 ## 1.0.4
 
 ### Patch Changes
