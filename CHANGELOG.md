@@ -1,5 +1,11 @@
 # inapp-spy
 
+## 1.0.7
+
+### Patch Changes
+
+- e775e7d: Test out publishing workflow
+
 ## 1.0.6
 
 ### Patch Changes

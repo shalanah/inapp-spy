@@ -1,8 +1,6 @@
 # InApp Spy 🔎
 
-Detect in-app browsers
-
-<!-- TODO: BADGING -->
+Detect in-app browsers - fork of `detect-inapp` with API modifications + additions
 
 # Installation
 
@@ -18,33 +16,45 @@ const { isInApp, appName } = InAppSpy();
 
 # API Reference
 
-```js
-InAppSpy(options: { ua?: string } | undefined)
+## Return properties
+
+### isInApp
+
+Detected in-app browser
+
+`boolean`
+
+### appName
+
+Recognized app name with in-app browser
+
+```ts
+"messenger" |
+  "facebook" |
+  "twitter" |
+  "wechat" |
+  "instagram" |
+  "tiktok" |
+  "snapchat" |
+  "line" |
+  undefined;
 ```
 
-### Parameters (optional)
+Can be `undefined` if `isInApp: true`.
 
-```js
+### ua
+
+The user agent passed in or figured out by `InAppSpy()` function
+
+`string`
+
+## Parameters (optional)
+
+```ts
 {
   ua?: string;
 }
 ```
-
-### Return properties
-
-#### `isInApp`
-
-`boolean` - Whether the user is in an in-app browser
-
-#### `appName`
-
-Values: "messenger", "facebook", "twitter", "wechat", "instagram", "tiktok", "snapchat", "line", or `undefined`
-
-Can be undefined even when `isInApp` is true.
-
-#### `ua`
-
-`string` - The user agent passed in or figured out by `InAppSpy()` function
 
 # License
 
