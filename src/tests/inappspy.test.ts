@@ -1,18 +1,20 @@
 import InAppSpy from "../index";
 import { WIN_ERROR } from "../utils";
-import { appNames } from "../regex";
+import { appKeys } from "../regexAppName";
 import { DESKTOP, MOBILE, TABLET } from "./useragents";
 
 describe("InAppSpy", () => {
   // Uncomment for single UA test
   // it.only("Detect error for no window.", () => {
   //   // Pixel chrome
+  //   const appKey = undefined;
   //   const appName = undefined;
   //   const isInApp = false;
   //   const ua =
   //     "Mozilla/5.0 (Linux; Android 12; Pixel 3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Mobile Safari/537.36";
 
   //   const res = InAppSpy({ ua });
+  //   expect(res.appKey).toBe(appKey);
   //   expect(res.appName).toBe(appName);
   //   expect(res.isInApp).toBe(isInApp);
   //   expect(res.ua).toBe(ua);
@@ -60,11 +62,11 @@ describe("InAppSpy", () => {
             throw new Error("key invalid: needs to be `inapp` or `not_inapp`");
           Object.entries(browsers).forEach(([browserName, useragents]) => {
             (useragents as string[]).forEach((useragent) => {
-              const { appName } = InAppSpy({ ua: useragent });
-              const hasItem = appName ? appNames.includes(appName) : false;
+              const { appKey } = InAppSpy({ ua: useragent });
+              const hasItem = appKey ? appKeys.includes(appKey) : false;
               expect(hasItem).toBe(isInApp); // make sure in known list
               if (hasItem)
-                expect(appName).toBe(browserName.toLocaleLowerCase()); // make sure in our useragents we use the right key
+                expect(appKey).toBe(browserName.toLocaleLowerCase()); // make sure in our useragents we use the right key
             });
           });
         });

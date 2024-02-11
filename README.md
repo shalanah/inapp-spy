@@ -24,9 +24,9 @@ Detected in-app browser
 
 `boolean`
 
-### appName
+### appKey
 
-Recognized app name with in-app browser
+Recognized app key with in-app browser
 
 ```ts
 "messenger" |
@@ -41,6 +41,14 @@ Recognized app name with in-app browser
 ```
 
 Can be `undefined` if `isInApp: true`.
+
+## appName
+
+Pretty printed app name ie: `tiktok` is `TikTok`. Subject to change,
+
+**`appKey` is recommended for programmatic use.**
+
+`string`
 
 ### ua
 
