@@ -1,5 +1,11 @@
 # inapp-spy
 
+## 1.0.6
+
+### Patch Changes
+
+- c1623de: Test workflow
+
 ## 1.0.5
 
 ### Patch Changes
