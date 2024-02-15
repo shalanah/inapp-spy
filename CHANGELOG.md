@@ -1,5 +1,17 @@
 # inapp-spy
 
+## 2.0.3
+
+### Patch Changes
+
+- d5b926a: edit readme
+
+## 2.0.2
+
+### Patch Changes
+
+- update readme for npm
+
 ## 2.0.1
 
 ### Patch Changes
