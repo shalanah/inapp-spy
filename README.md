@@ -1,67 +1,57 @@
-# InApp Spy 🔎
+# InAppSpy 🔎
 
 Detect in-app browsers - fork of `detect-inapp` with API modifications + additions
 
 # Installation
 
-`yarn add inapp-spy`
+```sh
+yarn add inapp-spy
+npm install inapp-spy
+```
 
 # Code Example
 
 ```js
 import InAppSpy from "inapp-spy";
 
-const { isInApp, appName } = InAppSpy();
+const { isInApp, appKey, appName } = InAppSpy();
 ```
 
 # API Reference
 
 ## Return properties
 
-### isInApp
-
-Detected in-app browser
-
-`boolean`
-
-### appKey
-
-Recognized app key with in-app browser
-
 ```ts
-"messenger" |
-  "facebook" |
-  "twitter" |
-  "wechat" |
-  "instagram" |
-  "tiktok" |
-  "snapchat" |
-  "line" |
-  undefined;
+{
+  // Detected in-app browser
+  isInApp: boolean;
+
+  // Recognized app with in-app browser
+  appKey: "messenger" |
+    "facebook" |
+    "twitter" |
+    "wechat" |
+    "instagram" |
+    "tiktok" |
+    "snapchat" |
+    "line" |
+    undefined; // can be undefined if `isInApp: true`
+
+  // Pretty printed app name
+  // - ie `appKey: 'tiktok', appName: 'TikTok'`
+  // - subject to change, use `appKey` for programmatic use
+  appName: string;
+
+  ua: string; // The user agent passed in or figured out by `InAppSpy()` function
+}
 ```
-
-Can be `undefined` if `isInApp: true`.
-
-### appName
-
-Pretty printed app name ie: `tiktok` is `TikTok`. Subject to change,
-
-**`appKey` is recommended for programmatic use.**
-
-`string`
-
-### ua
-
-The user agent passed in or figured out by `InAppSpy()` function
-
-`string`
 
 ## Parameters (optional)
 
 ```ts
-{
-  ua?: string;
-}
+InAppSpy({
+  ua?: string; // not required
+})
 ```
 
 # License

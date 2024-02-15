@@ -1,5 +1,11 @@
 # inapp-spy
 
+## 2.0.4
+
+### Patch Changes
+
+- cd2b859: edit readme for npm
+
 ## 2.0.3
 
 ### Patch Changes
