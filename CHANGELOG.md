@@ -1,5 +1,11 @@
 # inapp-spy
 
+## 2.1.1
+
+### Patch Changes
+
+- fd3bed2: return isSFSafariViewController always
+
 ## 2.1.0
 
 ### Minor Changes

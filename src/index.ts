@@ -12,6 +12,7 @@ const InAppSpy = (options: { ua?: string } | undefined = {}) => {
       appKey: undefined,
       appName: undefined,
       ua: userAgent,
+      isSFSafariViewController: false, // Experimental
     };
   }
 
