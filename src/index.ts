@@ -12,7 +12,7 @@ const InAppSpy = (options: { ua?: string } | undefined = {}) => {
       appKey: undefined,
       appName: undefined,
       ua: userAgent,
-      isSFSafariViewController: false, // Experimental
+      getIsSFSafariViewController: async () => false,
     };
   }
 
@@ -29,8 +29,8 @@ const InAppSpy = (options: { ua?: string } | undefined = {}) => {
     isInApp,
     appKey,
     appName: appKey ? appNameRegExps[appKey].name : undefined,
-    isSFSafariViewController, // Experimental
     ua: userAgent,
+    getIsSFSafariViewController: isSFSafariViewController, // Async function needs to run
   };
 };
 
