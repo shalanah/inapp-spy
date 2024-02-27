@@ -1,5 +1,11 @@
 # inapp-spy
 
+## 3.0.0
+
+### Major Changes
+
+- 59fb3bd: Remove isSFSafariViewController - still testing
+
 ## 2.1.1
 
 ### Patch Changes

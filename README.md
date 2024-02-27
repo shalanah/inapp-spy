@@ -43,12 +43,6 @@ const { isInApp, appKey, appName } = InAppSpy();
   appName: string;
 
   ua: string; // The user agent passed in or figured out by `InAppSpy()` function
-
-  // Experimental and unstable detection of SFSafariViewController (SFSVC)
-  // - Downloading UX in SFSVC is almost useless compared to regular Safari
-  // - If SFSVC is detected, `isInApp` will be `false` and `appKey` will be `undefined`
-  // - Subject to change, use with caution
-  isSFSafariViewController: boolean;
 }
 ```
 
