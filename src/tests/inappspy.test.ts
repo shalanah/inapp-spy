@@ -2,6 +2,7 @@ import InAppSpy from "../index";
 import { WIN_ERROR } from "../utils";
 import { appKeys } from "../regexAppName";
 import { DESKTOP, MOBILE, TABLET } from "./useragents";
+import { getIsIOSOrIPadOSSafari } from "../regexSFSafariViewController";
 
 describe("InAppSpy", () => {
   // Uncomment for single UA test
@@ -65,8 +66,28 @@ describe("InAppSpy", () => {
               const { appKey } = InAppSpy({ ua: useragent });
               const hasItem = appKey ? appKeys.includes(appKey) : false;
               expect(hasItem).toBe(isInApp); // make sure in known list
-              if (hasItem)
-                expect(appKey).toBe(browserName.toLocaleLowerCase()); // make sure in our useragents we use the right key
+              if (hasItem) expect(appKey).toBe(browserName.toLocaleLowerCase()); // make sure in our useragents we use the right key
+            });
+          });
+        });
+      });
+    });
+  });
+
+  it("Detect iOS/iPadOS Safari (SFSafariViewController + full browser - ignoring detected inapp browsers)", () => {
+    [DESKTOP, MOBILE, TABLET].forEach((device) => {
+      Object.entries(device).forEach(([deviceName, inappCats]) => {
+        Object.entries(inappCats).forEach(([cat, browsers]) => {
+          Object.entries(browsers).forEach(([browserName, useragents]) => {
+            (useragents as string[]).forEach((useragent) => {
+              const isIOSOrIPADOSSafari = getIsIOSOrIPadOSSafari(useragent);
+              const { isInApp } = InAppSpy({ ua: useragent });
+              if (isInApp) return; // skip in-app browsers
+              const expected =
+                ["IPAD", "IPHONE"].includes(deviceName) &&
+                browserName === "SAFARI";
+
+              expect(isIOSOrIPADOSSafari).toBe(expected);
             });
           });
         });
