@@ -1,5 +1,11 @@
 # inapp-spy
 
+## 3.0.1
+
+### Patch Changes
+
+- 98f9b98: Fix main path for commonjs
+
 ## 3.0.0
 
 ### Major Changes
