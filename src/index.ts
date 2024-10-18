@@ -1,28 +1,72 @@
+import { checkSkip, getUA } from "./utils";
+import { appNameCustom, getDetectionCustom } from "./detectionCustom";
+import { AppKey, AppName, Skip } from "./types";
+import { empty } from "./utils";
+import { appNameRegExps, getAppKey } from "./regexAppName";
 import { inappRegex } from "./regexInApp";
-import { getUA } from "./utils";
-import { getAppKey, appNameRegExps } from "./regexAppName";
+import { getSFSVCExperimental } from "./detectionSFSVC";
 
-const InAppSpy = (options: { ua?: string } | undefined = {}) => {
-  const { ua } = options;
-  let userAgent = ua || getUA();
-  if (!userAgent) {
+const InAppSpy = (
+  options: {
+    skip?: Skip;
+  } = {}
+): {
+  ua: string;
+  isInApp: boolean;
+  appKey: AppKey;
+  appName: AppName;
+  skipped: boolean; // a helper to know if we successfully skipped the app
+} => {
+  const { skip } = options;
+  const userAgent = getUA();
+
+  // No userAgent
+  if (!userAgent)
     return {
-      isInApp: false,
-      appKey: undefined,
-      appName: undefined,
+      ...empty,
       ua: userAgent,
+    };
+
+  // If user provides a list of apps to skip
+  const skipFn = (key: AppKey) =>
+    checkSkip({ skip, appKey: key, ua: userAgent });
+
+  // UA detection method (most common)
+  // - This method should be used first - order matters
+  if (userAgent.match(inappRegex) !== null) {
+    const appKey = getAppKey(userAgent);
+    if (skipFn(appKey)) return { ...empty, ua: userAgent, skipped: true };
+    return {
+      isInApp: true,
+      appKey: appKey,
+      appName: appKey ? appNameRegExps[appKey]!.name : undefined,
+      ua: userAgent,
+      skipped: false,
     };
   }
 
-  const isInApp = userAgent.match(inappRegex) !== null;
-  const appKey = isInApp ? getAppKey(userAgent) : undefined;
+  // Custom detection
+  // - Cannot be parsed via ua only (ie via window keys instead)
+  const appKey = getDetectionCustom();
+  if (appKey) {
+    if (skipFn(appKey)) return { ...empty, ua: userAgent, skipped: true };
+    return {
+      isInApp: true,
+      appKey: appKey,
+      appName: appNameCustom?.[appKey]?.name,
+      ua: userAgent,
+      skipped: false,
+    };
+  }
 
+  // Didn't find anything
   return {
-    isInApp,
-    appKey,
-    appName: appKey ? appNameRegExps[appKey].name : undefined,
+    ...empty,
     ua: userAgent,
   };
 };
+
+// Separate exports for experimental detection
+export const SFSVCExperimental = getSFSVCExperimental;
 
 export default InAppSpy;
