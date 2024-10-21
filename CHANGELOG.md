@@ -1,5 +1,15 @@
 # inapp-spy
 
+## 4.0.0
+
+### Major Changes
+
+- e5c457c: - Adds detection for `telegram`, `gsa`, and `linkedin`
+  - Adds property `skip` and return property `skipped`
+  - Adds `SFSVCExperimental` method
+  - Removes (breaking) property `ua` for `InAppSpy` method
+  - Refactors tests
+
 ## 3.0.1
 
 ### Patch Changes
