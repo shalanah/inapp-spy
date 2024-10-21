@@ -14,6 +14,12 @@
   },
   "keywords": [
     "inapp",
+    "in-app",
+    "iab",
+    "inapp-spy",
+    "in-app-spy",
+    "inappspy",
+    "detect-inapp",
     "detect",
     "browser",
     "spy"
@@ -22,13 +28,15 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
-    "/dist"
+    "/dist",
+    "/src"
   ],
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "test": "jest --coverage ./src",
     "versioning": "yarn changeset version",
-    "release": "npm run build && changeset publish"
+    "release": "npm run build && changeset publish",
+    "postinstall": "if [ ! -d ./dist ]; then echo 'dist not found'; if [ ! -d ./node_modules ]; then echo 'node_modules not found, running npm install...'; npm install; fi; echo 'Building...'; npm run build; else echo 'dist exists, skipping build.'; fi"
   },
   "devDependencies": {
     "@babel/core": "^7.23.9",

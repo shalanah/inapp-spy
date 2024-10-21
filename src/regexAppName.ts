@@ -31,13 +31,22 @@ export const appNameRegExps = {
     regex: /Snapchat/i,
     name: "Snapchat",
   },
+  linkedin: {
+    regex: /LinkedInApp/i,
+    name: "LinkedIn",
+  },
+  gsa: {
+    regex: /GSA/i,
+    name: "Google Search App",
+  },
 } as const;
 
-export const appKeys = Object.keys(
+export const appKeysDetectByUA = Object.keys(
   appNameRegExps
 ) as (keyof typeof appNameRegExps)[];
 
 export const getAppKey = (ua: string) => {
-  return appKeys.find((appName) => appNameRegExps[appName].regex.test(ua));
-}
-
+  return appKeysDetectByUA.find((appName) =>
+    appNameRegExps[appName].regex.test(ua)
+  );
+};

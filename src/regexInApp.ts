@@ -4,6 +4,7 @@ const inAppRegExps = [
   "Android.*wv\\)",
   "FB_\\w|FB\\w", // Match Facebook FB_ or FB then word char
   "Snapchat",
+  "GSA",
 ] as const;
 
 export const inappRegex = new RegExp(
