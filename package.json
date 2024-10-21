@@ -28,8 +28,7 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
-    "/dist",
-    "/src"
+    "/dist"
   ],
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts",
