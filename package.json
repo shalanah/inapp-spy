@@ -1,6 +1,6 @@
 {
   "name": "inapp-spy",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "detect in-app browsers",
   "author": "Shalanah Dawson",
   "homepage": "https://github.com/shalanah/inapp-spy",
@@ -28,8 +28,7 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
-    "/dist",
-    "/src"
+    "/dist"
   ],
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts",

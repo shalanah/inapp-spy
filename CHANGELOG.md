@@ -1,5 +1,11 @@
 # inapp-spy
 
+## 4.0.1
+
+### Patch Changes
+
+- 5e281f0: - Remove src from build (was only used in branch builds temporarily)
+
 ## 4.0.0
 
 ### Major Changes
