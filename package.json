@@ -1,6 +1,6 @@
 {
   "name": "inapp-spy",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "detect in-app browsers",
   "author": "Shalanah Dawson",
   "homepage": "https://github.com/shalanah/inapp-spy",
@@ -34,8 +34,7 @@
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "test": "jest --coverage ./src",
     "versioning": "yarn changeset version",
-    "release": "npm run build && changeset publish",
-    "postinstall": "if [ ! -d ./dist ]; then echo 'dist not found'; if [ ! -d ./node_modules ]; then echo 'node_modules not found, running npm install...'; npm install; fi; echo 'Building...'; npm run build; else echo 'dist exists, skipping build.'; fi"
+    "release": "npm run build && changeset publish"
   },
   "devDependencies": {
     "@babel/core": "^7.23.9",

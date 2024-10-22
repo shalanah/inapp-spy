@@ -1,5 +1,11 @@
 # inapp-spy
 
+## 4.0.2
+
+### Patch Changes
+
+- dc218c7: Removes post-install script that was only used for branch deploys
+
 ## 4.0.1
 
 ### Patch Changes
