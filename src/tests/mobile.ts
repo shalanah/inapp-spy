@@ -227,6 +227,34 @@ export const MOBILE: DeviceObj = {
   },
   PIXEL: {
     inapp: {
+      FACEBOOK: [
+        {
+          useragents: [
+            "Mozilla/5.0 (Linux; Android 14; Pixel 8 Build/AP2A.240905.003; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/130.0.6723.83 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/488.0.0.62.79;IABMV/1;]",
+          ],
+        },
+      ],
+      MESSENGER: [
+        {
+          useragents: [
+            "Mozilla/5.0 (Linux; Android 14; Pixel 8 Build/AP2A.240905.003; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/130.0.6723.58 Mobile Safari/537.36  [FB_IAB/FB4A;FBAV/481.1.0.74.109;]",
+          ],
+        },
+      ],
+      INSTAGRAM: [
+        {
+          useragents: [
+            "Mozilla/5.0 (Linux; Android 14; Pixel 8 Build/AP2A.240905.003; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/130.0.6723.58 Mobile Safari/537.36 Instagram 355.1.0.44.103 Android (34/14; 420dpi; 1080x2205; Google/google; Pixel 8; shiba; shiba; en_US; 658190016)",
+          ],
+        },
+      ],
+      THREADS: [
+        {
+          useragents: [
+            "Mozilla/5.0 (Linux; Android 14; Pixel 8 Build/AP2A.240905.003; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/130.0.6723.58 Mobile Safari/537.36 Barcelona 355.0.0.39.109 Android (34/14; 420dpi; 1080x2205; Google/google; Pixel 8; shiba; shiba; en_US; 657318936)",
+          ],
+        },
+      ],
       TIKTOK: [
         {
           useragents: [

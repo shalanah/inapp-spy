@@ -30,6 +30,7 @@ const { isInApp, appKey, appName } = InAppSpy();
 
   appKey: "messenger" |
     "facebook" |
+    "threads" |
     "twitter" |
     "wechat" |
     "instagram" |
