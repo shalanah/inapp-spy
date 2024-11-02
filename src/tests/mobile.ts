@@ -225,6 +225,17 @@ export const MOBILE: DeviceObj = {
       ],
     },
   },
+  XIAOMI: {
+    inapp: {
+      INSTAGRAM: [
+        {
+          useragents: [
+            "Mozilla/5.0 (Linux; Android 11; Mi A3 Build/RKQ1.200903.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/131.0.6778.14 Mobile Safari/537.36 Instagram 355.0.0.37.103 Android (30/11; 320dpi; 720x1411; Xiaomi; Mi A3; laurel_sprout; qcom; pt_BR; 657300861)",
+          ],
+        },
+      ],
+    },
+  },
   PIXEL: {
     inapp: {
       FACEBOOK: [
