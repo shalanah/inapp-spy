@@ -1,9 +1,14 @@
 export const appNameRegExps = {
   messenger: {
     regex:
-      /(\bFB[\w_]+\/(Messenger))|(^(?!.*\buseragents)(?!.*\bIABMV).*FB_IAB.*)/i, // Experimental for newer UAs - don't have `"useragents:" or end in "FB_IAB"
+      /(\bFB[\w_]+\/(Messenger))|(^(?!.*\buseragents)(?!.*\bIABMV).*(FB_IAB|FBAN).*)/i, // Experimental for newer UAs - don't have `"useragents:" or end in "IABMV"
     name: "Facebook Messenger",
     // version: /FBAV\/(\d+)/, -- stubbing in version testing if we decide to add that for meta products
+  },
+  instagram: {
+    regex: /\bInstagram/i,
+    name: "Instagram",
+    // version: /Instagram\s+\/(\d+)/i,
   },
   facebook: {
     regex: /\bFB[\w_]+\//,
@@ -21,11 +26,6 @@ export const appNameRegExps = {
   wechat: {
     regex: /\bMicroMessenger\//i,
     name: "WeChat",
-  },
-  instagram: {
-    regex: /\bInstagram/i,
-    name: "Instagram",
-    // version: /Instagram\s+\/(\d+)/i,
   },
   threads: {
     regex: /\bBarcelona/i,
