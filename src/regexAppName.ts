@@ -1,6 +1,7 @@
 export const appNameRegExps = {
   messenger: {
-    regex: /(\bFB[\w_]+\/(Messenger))|(\s\s\[FB_IAB)/i, // newer UAs on Android harder to detect - the two spaces is experimental however if UA changes will get picked up by facebook regex
+    regex:
+      /(\bFB[\w_]+\/(Messenger))|(^(?!.*\buseragents)(?!.*\bIABMV).*FB_IAB.*)/i, // Experimental for newer UAs - don't have `"useragents:" or end in "FB_IAB"
     name: "Facebook Messenger",
     // version: /FBAV\/(\d+)/, -- stubbing in version testing if we decide to add that for meta products
   },
@@ -27,7 +28,7 @@ export const appNameRegExps = {
     // version: /Instagram\s+\/(\d+)/i,
   },
   threads: {
-    regex: /Barcelona/i,
+    regex: /\bBarcelona/i,
     name: "Threads",
     // version: /Barcelona\s+\/(\d+)/i,
   },

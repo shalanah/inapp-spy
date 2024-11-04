@@ -249,6 +249,7 @@ export const MOBILE: DeviceObj = {
         {
           useragents: [
             "Mozilla/5.0 (Linux; Android 14; Pixel 8 Build/AP2A.240905.003; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/130.0.6723.58 Mobile Safari/537.36  [FB_IAB/FB4A;FBAV/481.1.0.74.109;]",
+            "Mozilla/5.0 (Linux; Android 14; Pixel 8 Build/AP2A.240905.003; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/130.0.6723.58 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/482.0.0.71.108;]",
           ],
         },
       ],
