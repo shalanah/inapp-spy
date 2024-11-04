@@ -1,19 +1,17 @@
+// NOTE: Consider getting the versions of known in-app browsers
 export const appNameRegExps = {
   messenger: {
     regex:
       /(\bFB[\w_]+\/(Messenger))|(^(?!.*\buseragents)(?!.*\bIABMV).*(FB_IAB|FBAN).*)/i, // Experimental for newer UAs - don't have `"useragents:" or end in "IABMV"
     name: "Facebook Messenger",
-    // version: /FBAV\/(\d+)/, -- stubbing in version testing if we decide to add that for meta products
   },
   instagram: {
     regex: /\bInstagram/i,
     name: "Instagram",
-    // version: /Instagram\s+\/(\d+)/i,
   },
   facebook: {
     regex: /\bFB[\w_]+\//,
     name: "Facebook",
-    // version: /FBAV\/(\d+)/,
   },
   twitter: {
     regex: /\bTwitter/i,
@@ -30,7 +28,6 @@ export const appNameRegExps = {
   threads: {
     regex: /\bBarcelona/i,
     name: "Threads",
-    // version: /Barcelona\s+\/(\d+)/i,
   },
   tiktok: {
     regex: /musical_ly|Bytedance/i,
