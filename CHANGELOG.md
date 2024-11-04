@@ -1,5 +1,13 @@
 # inapp-spy
 
+## 4.1.0
+
+### Minor Changes
+
+- 3c381dd: - Add recent Meta UAs to tests
+  - Add `threads` appKey
+  - Adjust messenger regex for newer UAs
+
 ## 4.0.2
 
 ### Patch Changes
