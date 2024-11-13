@@ -1,5 +1,11 @@
 # inapp-spy
 
+## 4.1.1
+
+### Patch Changes
+
+- e1f11ac: Update readme with bsky link over x link and order appkeys in alpha order
+
 ## 4.1.0
 
 ### Minor Changes
