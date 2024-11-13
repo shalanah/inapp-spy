@@ -28,18 +28,18 @@ const { isInApp, appKey, appName } = InAppSpy();
 {
   isInApp: boolean;
 
-  appKey: "messenger" |
-    "facebook" |
-    "threads" |
-    "twitter" |
-    "wechat" |
+  appKey: "facebook" |
+    "gsa" |
     "instagram" |
-    "tiktok" |
-    "snapchat" |
     "line" |
     "linkedin" |
-    "gsa" |
+    "snapchat" |
     "telegram" |
+    "threads" |
+    "tiktok" |
+    "twitter" |
+    "wechat" |
+    "messenger" |
     undefined; // can be undefined even if `isInApp: true`
 
   // Pretty printed app name
@@ -69,7 +69,7 @@ InAppSpy({
 
 > **With escape link usage:** Always include a query string on escape links just in case false positives occur. If query string is present - ignore the detection.
 
-This is a new experimental method to help you mitigate SFSafariViewController issues - ie [awkward downloading experience](https://x.com/shalanahfaith/status/1755725456777576788)
+This is a new experimental method to help you mitigate SFSafariViewController issues - ie [awkward downloading experience](https://bsky.app/profile/shalanah.bsky.social/post/3las76tply22p)
 
 `SFSVCExperimental` may give false positives on Safari browser or change with OS updates. Test code on devices before pushing to prod. Feedback is appreciated!
 
