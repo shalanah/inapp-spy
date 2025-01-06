@@ -12,7 +12,7 @@ export default defineConfig([
   },
   {
     entry: ["src/index.ts"],
-    format: ["iife"], // Build for CDN browser-compatible build
+    format: ["iife"], // Build for CDN browser-compatible
     dts: true,
     outDir: "dist",
     sourcemap: true,
