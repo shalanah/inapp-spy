@@ -27,9 +27,20 @@
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "browser": "dist/index.iife.js",
   "files": [
     "/dist"
   ],
+  "exports": {
+    ".": {
+      "browser": {
+        "import": "./dist/index.iife.js",
+        "require": "./dist/index.iife.js"
+      },
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "test": "jest --coverage ./src",
