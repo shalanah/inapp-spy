@@ -1,6 +1,6 @@
 {
   "name": "inapp-spy",
-  "version": "4.2.0",
+  "version": "4.2.1",
   "description": "detect in-app browsers",
   "author": "Shalanah Dawson",
   "homepage": "https://github.com/shalanah/inapp-spy",
@@ -33,12 +33,9 @@
   ],
   "exports": {
     ".": {
-      "browser": {
-        "import": "./dist/index.global.js",
-        "require": "./dist/index.global.js"
-      },
       "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "require": "./dist/index.js",
+      "browser": "./dist/index.global.js"
     }
   },
   "scripts": {

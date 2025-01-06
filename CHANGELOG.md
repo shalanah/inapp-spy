@@ -1,5 +1,11 @@
 # inapp-spy
 
+## 4.2.1
+
+### Patch Changes
+
+- 95ac4f9: Fix exports
+
 ## 4.2.0
 
 ### Minor Changes
