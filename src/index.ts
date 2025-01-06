@@ -68,5 +68,10 @@ const InAppSpy = (
 
 // Separate exports for experimental detection
 export const SFSVCExperimental = getSFSVCExperimental;
-
 export default InAppSpy;
+
+// For our global exports
+if (typeof window !== "undefined") {
+  (window as any).InAppSpy = InAppSpy; // Default export
+  (window as any).SFSVCExperimental = SFSVCExperimental; // Named export
+}
