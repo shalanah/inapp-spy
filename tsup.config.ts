@@ -7,5 +7,5 @@ export default defineConfig({
   splitting: false,
   sourcemap: true,
   clean: true,
-  globalName: "InAppSpy", // Global variable for the UMD build
+  globalName: "InAppSpy",
 });
