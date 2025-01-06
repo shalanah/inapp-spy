@@ -27,22 +27,22 @@
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "browser": "dist/index.iife.js",
+  "browser": "dist/index.global.js",
   "files": [
     "/dist"
   ],
   "exports": {
     ".": {
       "browser": {
-        "import": "./dist/index.iife.js",
-        "require": "./dist/index.iife.js"
+        "import": "./dist/index.global.js",
+        "require": "./dist/index.global.js"
       },
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
     }
   },
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "build": "tsup src/index.ts --format cjs,esm,iife --globalName InAppSpy --dts --minify",
     "test": "jest --coverage ./src",
     "versioning": "yarn changeset version",
     "release": "npm run build && changeset publish"
