@@ -33,12 +33,9 @@
   ],
   "exports": {
     ".": {
-      "browser": {
-        "import": "./dist/index.global.js",
-        "require": "./dist/index.global.js"
-      },
       "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "require": "./dist/index.js",
+      "browser": "./dist/index.global.js"
     }
   },
   "scripts": {
