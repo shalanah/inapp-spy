@@ -1,5 +1,11 @@
 # inapp-spy
 
+## 4.2.0
+
+### Minor Changes
+
+- 6634e0f: Create iife build for CDNs
+
 ## 4.1.1
 
 ### Patch Changes
