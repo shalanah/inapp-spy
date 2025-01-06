@@ -3,7 +3,7 @@ import { defineConfig } from "tsup";
 export default defineConfig([
   {
     entry: ["src/index.ts"],
-    format: ["cjs", "esm"], // Build for commonJS and ESmodules + browser-compatible build
+    format: ["cjs", "esm"], // Build for commonJS and ESmodules
     dts: true,
     sourcemap: true,
     splitting: false,
@@ -12,7 +12,7 @@ export default defineConfig([
   },
   {
     entry: ["src/index.ts"],
-    format: ["iife"], // Build for commonJS and ESmodules + browser-compatible build
+    format: ["iife"], // Build for CDN browser-compatible build
     dts: true,
     outDir: "dist",
     sourcemap: true,
