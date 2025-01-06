@@ -42,7 +42,7 @@
     }
   },
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm,iife --dts",
+    "build": "tsup",
     "test": "jest --coverage ./src",
     "versioning": "yarn changeset version",
     "release": "npm run build && changeset publish"
