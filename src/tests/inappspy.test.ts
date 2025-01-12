@@ -91,19 +91,59 @@ describe("InAppSpy", () => {
   //   expect(res.skipped).toBe(false);
   // });
 
-  // it("Detect error for no window.", () => {
-  //   const consoleErrorSpy = jest.spyOn(console, "error");
-  //   InAppSpy();
-
-  //   // Check if console.warn was called with the expected message
-  //   expect(consoleErrorSpy).toHaveBeenCalledWith(
-  //     expect.stringContaining(WIN_ERROR)
-  //   );
-  // });
+  // TODO: Share beforeEach + afterEach for the window/ua existence tests?
+  it("Detect error for no window with no ua", () => {
+    const consoleErrorSpy = jest.spyOn(console, "error");
+    InAppSpy();
+    expect(consoleErrorSpy).toHaveBeenCalledWith(
+      expect.stringContaining(WIN_ERROR)
+    );
+    consoleErrorSpy.mockRestore();
+  });
+  it("Detect NO error if given a ua", () => {
+    const consoleErrorSpy = jest.spyOn(console, "error");
+    InAppSpy({ ua: "test" });
+    expect(consoleErrorSpy).not.toHaveBeenCalled();
+    consoleErrorSpy.mockRestore();
+  });
+  it("Detect NO error if given a window with ua", () => {
+    const consoleErrorSpy = jest.spyOn(console, "error");
+    global.window = {
+      // @ts-ignore
+      navigator: {
+        userAgent: "test",
+      },
+    };
+    InAppSpy();
+    expect(consoleErrorSpy).not.toHaveBeenCalled();
+    // @ts-ignore
+    global.window = undefined;
+    consoleErrorSpy.mockRestore();
+  });
 
   it("Detect if user agent is in-app or not", () => {
-    traverseDevices(({ cat }) => {
-      const inapp = InAppSpy();
+    traverseDevices(({ cat, userAgent, app }) => {
+      // Global window object
+      let inapp = InAppSpy();
+      expect(inapp.isInApp).toBe(cat === "inapp");
+      if (!inapp.isInApp) {
+        // should always be undefined if no inapp
+        expect(inapp.appKey).toBe(undefined);
+        expect(inapp.appName).toBe(undefined);
+      }
+
+      // Server-side UA
+      // @ts-ignore
+      global.window = {}; // clear this out for just UA testing
+      inapp = InAppSpy({ ua: userAgent });
+      // Exclude custom detection keys since they include the full window
+      if ((appKeysDetectByCustom as string[]).includes(app.toLowerCase())) {
+        expect(inapp.isInApp).toBe(false);
+        expect(inapp.appKey).toBe(undefined);
+        expect(inapp.appName).toBe(undefined);
+        return;
+      }
+      // Regular UA detection
       expect(inapp.isInApp).toBe(cat === "inapp");
       if (!inapp.isInApp) {
         // should always be undefined if no inapp
@@ -132,7 +172,7 @@ describe("InAppSpy", () => {
       if (!(allAppKeys as string[]).includes(app.toLowerCase() as string))
         return; // not a known in-app key
       const inapp = InAppSpy();
-      expect(inapp.appKey).toBe((app as string).toLocaleLowerCase());
+      expect(inapp.appKey).toBe((app as string).toLowerCase());
     });
   });
 

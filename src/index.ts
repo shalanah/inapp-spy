@@ -8,6 +8,7 @@ import { getSFSVCExperimental } from "./detectionSFSVC";
 
 const InAppSpy = (
   options: {
+    ua?: string;
     skip?: Skip;
   } = {}
 ): {
@@ -17,8 +18,8 @@ const InAppSpy = (
   appName: AppName;
   skipped: boolean; // a helper to know if we successfully skipped the app
 } => {
-  const { skip } = options;
-  const userAgent = getUA();
+  const { skip, ua = "" } = options;
+  const userAgent = ua || getUA();
 
   // No userAgent
   if (!userAgent)

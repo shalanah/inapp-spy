@@ -1,5 +1,11 @@
 # inapp-spy
 
+## 4.3.0
+
+### Minor Changes
+
+- b6a51b3: Add ua optional param, update Readme with CDN
+
 ## 4.2.1
 
 ### Patch Changes
