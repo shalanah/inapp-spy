@@ -1,5 +1,11 @@
 # inapp-spy
 
+## 4.3.1
+
+### Patch Changes
+
+- 9c7bfd5: fix url for cdn in readme
+
 ## 4.3.0
 
 ### Minor Changes
