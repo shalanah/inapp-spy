@@ -13,7 +13,7 @@ npm install inapp-spy
 Or via CDN
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/inapp-spy@4.2.1/dist/index.global.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/inapp-spy@latest/dist/index.global.min.js"></script>
 ```
 
 # Code Examples
