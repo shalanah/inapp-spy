@@ -10,6 +10,12 @@ yarn add inapp-spy
 npm install inapp-spy
 ```
 
+Or via CDN
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/inapp-spy@4.2.1/dist/index.global.min.js"></script>
+```
+
 # Code Examples
 
 ## Basic
@@ -57,7 +63,9 @@ const { isInApp, appKey, appName } = InAppSpy();
 
 ```ts
 InAppSpy({
-  // To skip a specific appKey from detection
+  // User agent for server side - leave blank for better client in-app detection
+  ua?: string;
+  // Skip a specific appKey from detection
   skip?: {
     appKey: AppKey; // "messenger" | "facebook" etc
     platform?: "apple" | "android"; // use undefined for all platforms or leave blank

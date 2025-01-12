@@ -7,6 +7,7 @@ export const appNameCustom = {
 } as const;
 
 export const getDetectionCustom = () => {
+  if (typeof window === "undefined") return; // Skip if not in browser ie: server-side and only ua given
   if (getIsTelegram()) return "telegram";
   return;
 };
