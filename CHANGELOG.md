@@ -1,5 +1,11 @@
 # inapp-spy
 
+## 4.4.0
+
+### Minor Changes
+
+- 72e877c: Removes browser field from package, adds explicit bundles for jsdelivr, unpkg, and adds exports for global
+
 ## 4.3.1
 
 ### Patch Changes
