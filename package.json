@@ -27,17 +27,20 @@
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "browser": "dist/index.global.js",
   "files": [
     "/dist"
   ],
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
-      "browser": "./dist/index.global.js"
+      "require": "./dist/index.js"
+    },
+    "./global": {
+      "default": "./dist/index.global.js"
     }
   },
+  "jsdelivr": "dist/index.global.js",
+  "unpkg": "dist/index.global.js",
   "scripts": {
     "build": "tsup",
     "test": "jest --coverage ./src",
