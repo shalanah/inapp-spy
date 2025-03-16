@@ -9,6 +9,9 @@ export default defineConfig([
     splitting: false,
     clean: true,
     outDir: "dist",
+    define: {
+      __GLOBAL__: "false", // No global attachment in module builds
+    },
   },
   {
     entry: ["src/index.ts"],
@@ -19,5 +22,8 @@ export default defineConfig([
     splitting: false,
     clean: true,
     minify: true,
+    define: {
+      __GLOBAL__: "true", // Enable global attachment in the UMD build
+    },
   },
 ]);

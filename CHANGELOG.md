@@ -1,5 +1,11 @@
 # inapp-spy
 
+## 5.0.0
+
+### Major Changes
+
+- 95c2027: Fix global access to InAppSpy for non-global import/requires
+
 ## 4.4.0
 
 ### Minor Changes
