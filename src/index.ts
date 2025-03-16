@@ -6,6 +6,8 @@ import { appNameRegExps, getAppKey } from "./regexAppName";
 import { inappRegex } from "./regexInApp";
 import { getSFSVCExperimental } from "./detectionSFSVC";
 
+declare const __GLOBAL__: boolean;
+
 const InAppSpy = (
   options: {
     ua?: string;
@@ -71,8 +73,8 @@ const InAppSpy = (
 export const SFSVCExperimental = getSFSVCExperimental;
 export default InAppSpy;
 
-// For our global exports
-if (typeof window !== "undefined") {
+// For our global exports – only attach if __GLOBAL__ is true.
+if (typeof window !== "undefined" && __GLOBAL__) {
   (window as any).InAppSpy = InAppSpy; // Default export
   (window as any).SFSVCExperimental = SFSVCExperimental; // Named export
 }
