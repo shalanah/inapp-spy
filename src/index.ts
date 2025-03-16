@@ -73,7 +73,7 @@ const InAppSpy = (
 export const SFSVCExperimental = getSFSVCExperimental;
 export default InAppSpy;
 
-// For our global exports – only attach if __GLOBAL__ is true.
+// Only attach if UMD build (CDN build)
 if (typeof window !== "undefined" && __GLOBAL__) {
   (window as any).InAppSpy = InAppSpy; // Default export
   (window as any).SFSVCExperimental = SFSVCExperimental; // Named export
