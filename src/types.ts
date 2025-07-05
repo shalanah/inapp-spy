@@ -1,5 +1,5 @@
 import { appNameRegExps } from "./regexAppName";
-import { appNameCustom } from "./detectionCustom";
+import { appNameCustom } from "./detectClientSide";
 
 export type AppKey =
   | keyof typeof appNameCustom

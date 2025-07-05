@@ -44,7 +44,7 @@
   "scripts": {
     "build": "tsup",
     "test": "jest --coverage ./src",
-    "versioning": "yarn changeset version",
+    "versioning": "pnpm changeset version",
     "release": "npm run build && changeset publish"
   },
   "devDependencies": {

@@ -1,14 +1,13 @@
 import InAppSpy from "../index";
-import { getIsAppleDevice, WIN_ERROR } from "../utils";
+import { getIsAppleDevice, WIN_ERROR, getIsSafariUA } from "../utils";
 import { appKeysDetectByUA } from "../regexAppName";
 import { DESKTOP } from "./desktop";
 import { MOBILE } from "./mobile";
 import { TABLET } from "./tablet";
 import { typedEntries, BrowserDetection } from "./utils";
-import { appKeysDetectByCustom } from "../detectionCustom";
-import { getIsSafariUA } from "../detectionSFSVC";
+import { appKeysDetectByCustom } from "../detectClientSide";
 import { AppKey } from "../types";
-import { getSFSVCExperimental } from "../detectionSFSVC";
+import { getSFSVCExperimental } from "../detectSFSVC";
 
 type Callback = (args: {
   deviceName: string;
@@ -39,19 +38,21 @@ const traverseDevices = async (
           for (const { useragents, window } of detection) {
             if (!useragents) continue;
             for (const userAgent of useragents) {
-              // @ts-ignore
-              global.window = {
-                ...window,
-                // @ts-ignore
+              const win: any = window;
+              const mockWindow = {
+                ...win,
                 navigator: {
-                  ...(window?.navigator || {}),
+                  ...(win?.navigator || {}),
                   userAgent,
                 },
                 document: {
-                  ...(window?.document || {}),
+                  ...(win?.document || {}),
                   readyState: "complete", // just to make sure we don't wait for page load
                 },
               };
+
+              // @ts-ignore
+              global.window = mockWindow;
 
               // Wait for the async callback to complete before continuing
               await callback({
@@ -68,7 +69,6 @@ const traverseDevices = async (
   }
 };
 
-// TESTS
 describe("InAppSpy", () => {
   // Uncomment for single UA test
   // it.only("test one", () => {
@@ -92,7 +92,7 @@ describe("InAppSpy", () => {
   // });
 
   // TODO: Share beforeEach + afterEach for the window/ua existence tests?
-  it("Detect error for no window with no ua", () => {
+  it("Error for no window with no ua", () => {
     const consoleErrorSpy = jest.spyOn(console, "error");
     InAppSpy();
     expect(consoleErrorSpy).toHaveBeenCalledWith(
@@ -100,13 +100,15 @@ describe("InAppSpy", () => {
     );
     consoleErrorSpy.mockRestore();
   });
-  it("Detect NO error if given a ua", () => {
+
+  it("NO error if given a ua", () => {
     const consoleErrorSpy = jest.spyOn(console, "error");
     InAppSpy({ ua: "test" });
     expect(consoleErrorSpy).not.toHaveBeenCalled();
     consoleErrorSpy.mockRestore();
   });
-  it("Detect NO error if given a window with ua", () => {
+
+  it("NO error if given a window with ua", () => {
     const consoleErrorSpy = jest.spyOn(console, "error");
     global.window = {
       // @ts-ignore
@@ -121,8 +123,8 @@ describe("InAppSpy", () => {
     consoleErrorSpy.mockRestore();
   });
 
-  it("Detect if user agent is in-app or not", () => {
-    traverseDevices(({ cat, userAgent, app }) => {
+  it("Detect if in-app or not", async () => {
+    await traverseDevices(({ cat, userAgent, app }) => {
       // Global window object
       let inapp = InAppSpy();
       expect(inapp.isInApp).toBe(cat === "inapp");
@@ -167,8 +169,8 @@ describe("InAppSpy", () => {
     });
   });
 
-  it("Detect in-app key is in known list", () => {
-    traverseDevices(({ app }) => {
+  it("Detect in-app key is in known list", async () => {
+    await traverseDevices(async ({ app }) => {
       if (!(allAppKeys as string[]).includes(app.toLowerCase() as string))
         return; // not a known in-app key
       const inapp = InAppSpy();
@@ -176,20 +178,18 @@ describe("InAppSpy", () => {
     });
   });
 
-  it("Test safari regex", () => {
-    traverseDevices(({ deviceName, userAgent, app }) => {
+  it("Test safari regex", async () => {
+    await traverseDevices(async ({ deviceName, userAgent, app }) => {
       const isSafariUA = getIsSafariUA(userAgent);
       expect(isSafariUA).toBe(
-        app === "SAFARI" ||
-          (app === "TELEGRAM" && deviceName === "IPHONE") || // odd case where UA is unchanged for telegram
-          app === "SFSVC" || // SFSVC has same UA as safari
-          app === "PWA_SAFARI"
+        ["SAFARI", "PWA_SAFARI", "PRIVATE_SAFARI", "SFSVC"].includes(app) ||
+          (app === "TELEGRAM" && deviceName === "IPHONE") // odd case where UA is unchanged for telegram
       );
     });
   });
 
-  it("Test Apple Device", () => {
-    traverseDevices(({ deviceName, userAgent }) => {
+  it("Test Apple device", async () => {
+    await traverseDevices(async ({ deviceName, userAgent }) => {
       const isAppleDevice = getIsAppleDevice(userAgent);
       expect(isAppleDevice).toBe(
         ["IPAD", "IPHONE", "MACOS"].includes(deviceName)
@@ -197,8 +197,8 @@ describe("InAppSpy", () => {
     });
   });
 
-  it("Test skip", () => {
-    traverseDevices(({ deviceName, app }) => {
+  it("Test skip", async () => {
+    await traverseDevices(async ({ deviceName, app }) => {
       if (!(allAppKeys as string[]).includes(app.toLowerCase() as string)) {
         // nothing should happen here since not in our inapp list
         const inapp = InAppSpy({ skip: [{ appKey: "facebook" }] });
