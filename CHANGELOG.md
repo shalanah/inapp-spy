@@ -1,5 +1,11 @@
 # inapp-spy
 
+## 5.0.2
+
+### Patch Changes
+
+- bd6e87a: Update dependencies, remove unused package
+
 ## 5.0.1
 
 ### Patch Changes
