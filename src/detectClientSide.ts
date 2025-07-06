@@ -1,4 +1,4 @@
-import { getIsTelegram } from "./detectionTelegram";
+import { getIsTelegram } from "./detectTelegram";
 
 export const appNameCustom = {
   telegram: {
@@ -6,7 +6,7 @@ export const appNameCustom = {
   },
 } as const;
 
-export const getDetectionCustom = () => {
+export const getDetectClientSide = () => {
   if (typeof window === "undefined") return; // Skip if not in browser ie: server-side and only ua given
   if (getIsTelegram()) return "telegram";
   return;

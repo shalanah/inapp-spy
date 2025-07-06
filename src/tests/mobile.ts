@@ -105,7 +105,14 @@ export const MOBILE: DeviceObj = {
           useragents: [
             "Mozilla/5.0 (iPhone; CPU iPhone OS 18_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.1 Mobile/15E148 Safari/604.1",
           ],
-          ...appleTouchWindow,
+          window: {
+            navigator: {
+              storage: {
+                getDirectory: () => {},
+              },
+            },
+            ...appleTouchWindow.window,
+          },
         },
       ],
       CHROME: [
@@ -148,6 +155,23 @@ export const MOBILE: DeviceObj = {
           ...appleTouchWindow,
         },
       ],
+      PRIVATE_SAFARI: [
+        {
+          useragents: [
+            "Mozilla/5.0 (iPhone; CPU iPhone OS 18_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.1 Mobile/15E148 Safari/604.1",
+          ],
+          window: {
+            navigator: {
+              storage: {
+                getDirectory: () => {
+                  // throw new Error("Unknown transient reason");
+                },
+              },
+            },
+            ...appleTouchWindow,
+          },
+        },
+      ],
       PWA_SAFARI: [
         {
           useragents: [
@@ -157,7 +181,7 @@ export const MOBILE: DeviceObj = {
             navigator: {
               clearAppBadge: {}, // actually a fn but just testing for presence
             },
-            ...appleTouchWindow,
+            ...appleTouchWindow.window,
           },
         },
       ],
@@ -173,8 +197,9 @@ export const MOBILE: DeviceObj = {
             "Mozilla/5.0 (iPhone; CPU iPhone OS 18_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.1 Mobile/15E148 Safari/604.1",
           ],
           window: {
+            navigator: { storage: { getDirectory: () => {} } }, // Safari 18+ but not in private mode
             SchemaDataExtractor: {},
-            ...appleTouchWindow,
+            ...appleTouchWindow.window,
           },
         },
       ],

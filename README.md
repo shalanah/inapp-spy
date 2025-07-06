@@ -75,11 +75,11 @@ InAppSpy({
 
 ## NEW SFSafariViewController detection
 
-> **With escape link usage:** Always include a query string on escape links just in case false positives occur. If query string is present - ignore the detection.
-
-This is a new experimental method to help you mitigate SFSafariViewController issues - ie [awkward downloading experience](https://bsky.app/profile/shalanah.bsky.social/post/3las76tply22p)
+A new experimental method to help you mitigate SFSafariViewController issues - ie [awkward downloading experience](https://bsky.app/profile/shalanah.bsky.social/post/3las76tply22p)
 
 `SFSVCExperimental` may give false positives on Safari browser or change with OS updates. Test code on devices before pushing to prod. Feedback is appreciated!
+
+> **Tip** With escape link usage, include a query string in case false positives occur. If query string is present - ignore detection.
 
 #### JS usage
 

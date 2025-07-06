@@ -1,5 +1,11 @@
 # inapp-spy
 
+## 5.0.1
+
+### Patch Changes
+
+- ae45f3e: Fix iOS Safari in Private mode false positive in SFSVCExperimental
+
 ## 5.0.0
 
 ### Major Changes

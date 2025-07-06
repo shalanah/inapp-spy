@@ -1,10 +1,10 @@
 import { checkSkip, getUA } from "./utils";
-import { appNameCustom, getDetectionCustom } from "./detectionCustom";
+import { appNameCustom, getDetectClientSide } from "./detectClientSide";
 import { AppKey, AppName, Skip } from "./types";
 import { empty } from "./utils";
 import { appNameRegExps, getAppKey } from "./regexAppName";
 import { inappRegex } from "./regexInApp";
-import { getSFSVCExperimental } from "./detectionSFSVC";
+import { getSFSVCExperimental } from "./detectSFSVC";
 
 declare const __GLOBAL__: boolean;
 
@@ -48,9 +48,8 @@ const InAppSpy = (
     };
   }
 
-  // Custom detection
-  // - Cannot be parsed via ua only (ie via window keys instead)
-  const appKey = getDetectionCustom();
+  // Client side only detections
+  const appKey = getDetectClientSide();
   if (appKey) {
     if (skipFn(appKey)) return { ...empty, ua: userAgent, skipped: true };
     return {
