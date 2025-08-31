@@ -1,10 +1,15 @@
+// Quick in-app detection - should cover all specific in-app cases
 const inAppRegExps = [
   "WebView",
-  "(iPhone|iPod|iPad)(?!.*Safari/)", // Apple devices but not with "Safari/" following
+  // Apple devices but not with "Safari/" following
+  "(iPhone|iPod|iPad)(?!.*Safari/)",
   "Android.*wv\\)",
-  "FB_\\w|FB\\w", // Match Facebook FB_ or FB then word char
+  // Match Facebook FB_ or FB then word char (Android)
+  "FB_\\w|FB\\w",
+  // Can end in Safari (iPhone)
   "Snapchat",
   "GSA",
+  "Instagram",
 ] as const;
 
 export const inappRegex = new RegExp(

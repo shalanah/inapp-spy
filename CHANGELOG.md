@@ -1,5 +1,11 @@
 # inapp-spy
 
+## 5.0.3
+
+### Patch Changes
+
+- 22b6b06: Fixes Instagram detection on iPhone with Safari/ in the UA
+
 ## 5.0.2
 
 ### Patch Changes
