@@ -30,13 +30,13 @@ const { isInApp, appKey, appName } = InAppSpy();
 
 # API Reference
 
-## Return Propertiess
+## Return Properties
 
-#### isInApp
+### isInApp
 
 True if in-app browser has been detected
 
-#### appKey
+### appKey
 
 Machine-friendly key (use for logic)
 
@@ -55,15 +55,15 @@ Machine-friendly key (use for logic)
 
 Can be undefined if `isInApp` is true.
 
-#### appName
+### appName
 
 Human-readable name (e.g. "TikTok")
 
-#### ua
+### ua
 
 Resolved or provided user agent string.
 
-#### skipped
+### skipped
 
 True if detection was bypassed via skip.
 

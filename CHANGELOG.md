@@ -1,5 +1,11 @@
 # inapp-spy
 
+## 5.0.5
+
+### Patch Changes
+
+- 52661bf: add a tag, edit readme
+
 ## 5.0.4
 
 ### Patch Changes

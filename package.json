@@ -1,6 +1,6 @@
 {
   "name": "inapp-spy",
-  "version": "5.0.4",
+  "version": "5.0.5",
   "description": "detect in-app browsers",
   "author": "Shalanah Dawson",
   "homepage": "https://github.com/shalanah/inapp-spy",
@@ -16,6 +16,7 @@
     "inapp",
     "in-app",
     "iab",
+    "inappspy",
     "inapp-spy",
     "in-app-spy",
     "inappspy",
