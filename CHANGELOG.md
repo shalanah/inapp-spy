@@ -1,5 +1,11 @@
 # inapp-spy
 
+## 5.0.4
+
+### Patch Changes
+
+- 45d6785: edit readme, add contributing file
+
 ## 5.0.3
 
 ### Patch Changes
