@@ -1,10 +1,11 @@
 # InAppSpy 🔎
 
-[![npm version](https://img.shields.io/npm/v/inapp-spy)](https://www.npmjs.com/package/inapp-spy) [![npm downloads](https://img.shields.io/npm/dw/inapp-spy)](https://www.npmjs.com/package/inapp-spy) [![last commit](https://img.shields.io/github/last-commit/shalanah/inapp-spy)](https://github.com/shalanah/inapp-spy) [![changesets](https://img.shields.io/badge/changesets-enabled-brightgreen)](https://github.com/changesets/changesets) [![maintenance](https://img.shields.io/badge/maintained-yes-brightgreen)](#) [![license](https://img.shields.io/github/license/shalanah/inapp-spy)](LICENSE) [![GitHub Repo stars](https://img.shields.io/github/stars/shalanah/inapp-spy?style=social)](https://github.com/shalanah/inapp-spy/stargazers)
+[![npm version](https://img.shields.io/npm/v/inapp-spy)](https://www.npmjs.com/package/inapp-spy) [![Changelog](https://img.shields.io/badge/changelog-md-blue)](https://github.com/shalanah/inapp-spy/blob/main/CHANGELOG.md)
+[![npm downloads](https://img.shields.io/npm/dw/inapp-spy)](https://www.npmjs.com/package/inapp-spy) [![last commit](https://img.shields.io/github/last-commit/shalanah/inapp-spy)](https://github.com/shalanah/inapp-spy) [![changesets](https://img.shields.io/badge/changesets-enabled-brightgreen)](https://github.com/changesets/changesets) [![maintenance](https://img.shields.io/badge/maintained-yes-brightgreen)](#) [![license](https://img.shields.io/github/license/shalanah/inapp-spy)](https://github.com/shalanah/inapp-spy/blob/main/LICENSE) [![GitHub Repo stars](https://img.shields.io/github/stars/shalanah/inapp-spy?style=social)](https://github.com/shalanah/inapp-spy/stargazers)
 
-`inapp-spy` helps developers detect when a website is opened inside an in-app browser (e.g. Instagram, Facebook, TikTok, Telegram).
+`inapp-spy` detects in-app browsers when a website is opened inside an app (e.g. Instagram, Facebook, TikTok, Telegram).
 
-It’s a maintained and refactored alternative to `detect-inapp`, with TypeScript support and regular updates – and it powers [inappdebugger.com](https://inappdebugger.com) — a live testing tool for in-app browser detection.
+It’s a maintained and refactored alternative to `detect-inapp`, with TypeScript support and regular updates – and it powers [inappdebugger.com](https://inappdebugger.com), a live testing tool for in-app browser detection.
 
 # Installation
 
@@ -38,7 +39,9 @@ True if in-app browser has been detected
 
 ### appKey
 
-Machine-friendly key (use for logic)
+Machine-friendly key
+
+All except `telegram` use UA detection strategies - server or client friendly. `telegram` can only be detected client-side
 
 - `facebook`
 - `gsa`
@@ -137,6 +140,10 @@ SFSVCExperimental({
 # License
 
 [MIT](https://github.com/shalanah/inapp-spy/blob/main/LICENSE)
+
+# Changelog
+
+See [CHANGELOG.md](https://github.com/shalanah/inapp-spy/blob/main/CHANGELOG.md) for the full release history.
 
 # Related
 
