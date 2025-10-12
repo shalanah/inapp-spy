@@ -10,7 +10,7 @@ const inAppRegExps = [
   "Snapchat",
   "GSA",
   "Instagram",
-  "musical_ly|Bytedance",
+  "musical_ly",
 ] as const;
 
 export const inappRegex = new RegExp(
