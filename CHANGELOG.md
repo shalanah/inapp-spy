@@ -1,5 +1,11 @@
 # inapp-spy
 
+## 5.0.6
+
+### Patch Changes
+
+- 38f6642: Fix TikTok detection for user agents containing Safari/
+
 ## 5.0.5
 
 ### Patch Changes
