@@ -1,5 +1,11 @@
 # inapp-spy
 
+## 5.0.7
+
+### Patch Changes
+
+- 3673257: Fix Facebook detection, change UA detection to app detection first then global UA options
+
 ## 5.0.6
 
 ### Patch Changes
