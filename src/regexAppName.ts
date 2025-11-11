@@ -10,7 +10,7 @@ export const appNameRegExps = {
     name: "Instagram",
   },
   facebook: {
-    regex: /\bFB[\w_]+\//,
+    regex: /\bFB[\w_]+\/|\bFacebook/i,
     name: "Facebook",
   },
   twitter: {

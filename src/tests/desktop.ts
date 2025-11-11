@@ -7,6 +7,7 @@ export const DESKTOP: DeviceObj = {
         {
           useragents: [
             "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0.1 Safari/605.1.15",
           ],
           window: {
             document: {}, // no touch events
@@ -17,6 +18,17 @@ export const DESKTOP: DeviceObj = {
         {
           useragents: [
             "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36",
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36",
+          ],
+          window: {
+            document: {}, // no touch events
+          },
+        },
+      ],
+      FIREFOX: [
+        {
+          useragents: [
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:141.0) Gecko/20100101 Firefox/141.0",
           ],
           window: {
             document: {}, // no touch events

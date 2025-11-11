@@ -36,26 +36,26 @@ const InAppSpy = (
 
   // UA detection method (most common)
   // - This method should be used first - order matters
-  if (userAgent.match(inappRegex) !== null) {
-    const appKey = getAppKey(userAgent);
-    if (skipFn(appKey)) return { ...empty, ua: userAgent, skipped: true };
+  const uaAppKey = getAppKey(userAgent);
+  if (uaAppKey || userAgent.match(inappRegex) !== null) {
+    if (skipFn(uaAppKey)) return { ...empty, ua: userAgent, skipped: true };
     return {
       isInApp: true,
-      appKey: appKey,
-      appName: appKey ? appNameRegExps[appKey]!.name : undefined,
+      appKey: uaAppKey,
+      appName: uaAppKey ? appNameRegExps[uaAppKey]!.name : undefined,
       ua: userAgent,
       skipped: false,
     };
   }
 
-  // Client side only detections
-  const appKey = getDetectClientSide();
-  if (appKey) {
-    if (skipFn(appKey)) return { ...empty, ua: userAgent, skipped: true };
+  // Client side only detections (needs window)
+  const clientAppKey = getDetectClientSide();
+  if (clientAppKey) {
+    if (skipFn(clientAppKey)) return { ...empty, ua: userAgent, skipped: true };
     return {
       isInApp: true,
-      appKey: appKey,
-      appName: appNameCustom?.[appKey]?.name,
+      appKey: clientAppKey,
+      appName: appNameCustom?.[clientAppKey]?.name,
       ua: userAgent,
       skipped: false,
     };
