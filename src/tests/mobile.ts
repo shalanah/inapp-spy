@@ -84,6 +84,14 @@ export const MOBILE: DeviceObj = {
           ...appleTouchWindow,
         },
       ],
+      WHATSAPP: [
+        {
+          useragents: [
+            "Mozilla/5.0 (iPhone; CPU iPhone OS 26_0_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0.1 Mobile/15E148 Safari/604.1 [WAiOS/2.25.31]",
+          ],
+          ...appleTouchWindow,
+        },
+      ],
       SNAPCHAT: [
         {
           useragents: [
@@ -302,6 +310,13 @@ export const MOBILE: DeviceObj = {
         {
           useragents: [
             "Mozilla/5.0 (Linux; Android 14; Pixel 8 Build/UQ1A.240105.004; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/121.0.6167.143 Mobile Safari/537.36 musical_ly_2023303040 JsSdk/1.0 NetType/WIFI Channel/googleplay AppName/musical_ly app_version/33.3.4 ByteLocale/en ByteFullLocale/en Region/US AppId/1233 Spark/1.5.0.5-alpha.2 AppVersion/33.3.4 BytedanceWebview/d8a21c6",
+          ],
+        },
+      ],
+      WHATSAPP: [
+        {
+          useragents: [
+            "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.7390.124 Mobile Safari/537.36 [WA4A/2.25.32.75;]",
           ],
         },
       ],

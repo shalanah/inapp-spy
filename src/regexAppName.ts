@@ -45,6 +45,10 @@ export const appNameRegExps = {
     regex: /GSA/i,
     name: "Google Search App",
   },
+  whatsapp: {
+    regex: /\b(WAiOS|WA4A)\//i,
+    name: "WhatsApp",
+  },
 } as const;
 
 export const appKeysDetectByUA = Object.keys(
