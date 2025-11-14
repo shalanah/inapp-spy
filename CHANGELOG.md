@@ -1,5 +1,11 @@
 # inapp-spy
 
+## 5.0.8
+
+### Patch Changes
+
+- 475a3f3: Add WhatsApp in-app browser detection for iOS and Android
+
 ## 5.0.7
 
 ### Patch Changes

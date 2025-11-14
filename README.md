@@ -54,6 +54,7 @@ All except `telegram` use UA detection strategies - server or client friendly. `
 - `tiktok`
 - `twitter`
 - `wechat`
+- `whatsapp`
 - `messenger`
 
 Can be undefined if `isInApp` is true.
