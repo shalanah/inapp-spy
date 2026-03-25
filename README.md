@@ -89,7 +89,7 @@ InAppSpy({
 
 Detect when a page is opened inside **SFSafariViewController** (helps with issues like [awkward download UX](https://bsky.app/profile/shalanah.bsky.social/post/3las76tply22p)).
 
-⚠️ `SFSVCExperimental` may return false positives (e.g. Safari itself) and could change with future iOS updates. Always test on real devices.
+⚠️ `SFSVCExperimental` may return false positives (e.g. Safari itself) and could change with future iOS updates. Make sure to be on the latest `inapp-spy` to avoid issues and always test on real devices.
 
 💡 Tip: If you use escape links, add a query string — if present, skip detection to avoid false positives.
 
