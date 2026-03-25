@@ -89,6 +89,8 @@ InAppSpy({
 
 Detect when a page is opened inside **SFSafariViewController** (helps with issues like [awkward download UX](https://bsky.app/profile/shalanah.bsky.social/post/3las76tply22p)).
 
+‼️ Detection valid for Safari versions 17-26.3 working to detect on 26.4+. Update to the latest `inapp-spy` to prevent SFSafariViewController false positives.
+
 ⚠️ `SFSVCExperimental` may return false positives (e.g. Safari itself) and could change with future iOS updates. Always test on real devices.
 
 💡 Tip: If you use escape links, add a query string — if present, skip detection to avoid false positives.

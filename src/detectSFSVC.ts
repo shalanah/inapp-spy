@@ -38,6 +38,7 @@ const consoleDebug = ({
 };
 
 const minSafariVersion = "17"; // could possibly be lower would need to check 16
+const maxSafariVersion = "26.3"; // halting detection till another method is found: https://github.com/shalanah/inapp-spy/issues/61
 
 /**
  * Experimental function to detect SFSVC (Safari View Controller)
@@ -68,9 +69,15 @@ export const getSFSVCExperimental = async ({
   if (isSafariPrivate) return false;
   if (getIsTelegram()) return false;
 
-  // Targeted versions of Safari that we'll check
+  // Targeted versions of Safari that this check is valid for
   const version = getSafariVersion(ua);
-  if (compare(version, minSafariVersion) < 0) return false;
+  if (
+    compare(version, minSafariVersion) < 0 ||
+    compare(version, maxSafariVersion) > 0
+  )
+    return false;
+
+  // User specified max version
   if (
     maxVersion !== undefined &&
     (compare(maxVersion, minSafariVersion) < 0 ||
