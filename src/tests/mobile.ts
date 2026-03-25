@@ -235,6 +235,19 @@ export const MOBILE: DeviceObj = {
           },
         },
       ],
+      ARC: [
+        {
+          useragents: [
+            "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.4 Mobile/15E148 Safari/604.1",
+          ],
+          window: {
+            navigator: { storage: { getDirectory: () => {} } },
+            browser: {}, // way to detect in 26.4+
+            observeHeadAdded: {}, // way to detect iOS Arc (is a function but just checking for presence here)
+            ...appleTouchWindow.window,
+          },
+        },
+      ],
     },
   },
   SONY: {

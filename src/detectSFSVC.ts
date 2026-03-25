@@ -1,3 +1,5 @@
+import { getIsIOSArc } from "./detectIOSArc";
+import { getIsPWA } from "./detectPWA";
 import { getIsSafariPrivate } from "./detectSafariPrivate";
 import { getIsTelegram } from "./detectTelegram";
 import {
@@ -60,23 +62,19 @@ export const getSFSVCExperimental = async ({
   const ua = getUA();
 
   // Early exit checks
-  if (!ua) return false; // No user agent
+  if (!ua) return false;
   if (!isiOS(ua)) return false; // iPad or iPhone
-  if (!getIsSafariUA(ua)) return false; // Safari
-  if ("clearAppBadge" in (window?.navigator || {})) return false; // PWAs
+  if (!getIsSafariUA(ua)) return false;
+  if (getIsPWA()) return false;
   if (getIsTelegram()) return false;
-  // TODO: Need to do Arc detection
+  if (getIsIOSArc()) return false;
 
   // Targeted versions of Safari that this check is valid for
   const version = getSafariVersion(ua);
   if (compare(version, minSafariVersion) < 0) return false;
 
   // User specified max version
-  if (
-    maxVersion !== undefined &&
-    (compare(maxVersion, minSafariVersion) < 0 ||
-      compare(version, maxVersion) > 0)
-  )
+  if (maxVersion !== undefined && compare(version, maxVersion) > 0)
     return false;
 
   // Detection for Safari 26.4+

@@ -183,7 +183,8 @@ describe("InAppSpy", () => {
       const isSafariUA = getIsSafariUA(userAgent);
       expect(isSafariUA).toBe(
         ["SAFARI", "PWA_SAFARI", "PRIVATE_SAFARI", "SFSVC"].includes(app) ||
-          (app === "TELEGRAM" && deviceName === "IPHONE") // odd case where UA is unchanged for telegram
+          // odd cases where UA is indistinguishable from Safari
+          (["ARC", "TELEGRAM"].includes(app) && deviceName === "IPHONE")
       );
     });
   });
