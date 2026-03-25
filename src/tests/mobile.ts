@@ -125,6 +125,16 @@ export const MOBILE: DeviceObj = {
             ...appleTouchWindow.window,
           },
         },
+        {
+          useragents: [
+            "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.4 Mobile/15E148 Safari/604.1",
+          ],
+          window: {
+            navigator: { storage: { getDirectory: () => {} } },
+            // No browser object - way to detect in 26.4+
+            ...appleTouchWindow.window,
+          },
+        },
       ],
       CHROME: [
         {
@@ -210,6 +220,17 @@ export const MOBILE: DeviceObj = {
           window: {
             navigator: { storage: { getDirectory: () => {} } }, // Safari 18+ but not in private mode
             SchemaDataExtractor: {},
+            ...appleTouchWindow.window,
+          },
+        },
+        // 26.4 no longer has SchemaDataExtractor
+        {
+          useragents: [
+            "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.4 Mobile/15E148 Safari/604.1",
+          ],
+          window: {
+            navigator: { storage: { getDirectory: () => {} } }, // Safari 18+ but not in private mode
+            browser: {}, // way to detect in 26.4+
             ...appleTouchWindow.window,
           },
         },
