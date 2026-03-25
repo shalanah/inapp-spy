@@ -64,19 +64,30 @@ export const getSFSVCExperimental = async ({
   if (!isiOS(ua)) return false; // iPad or iPhone
   if (!getIsSafariUA(ua)) return false; // Safari
   if ("clearAppBadge" in (window?.navigator || {})) return false; // PWAs
-  const isSafariPrivate = await getIsSafariPrivate();
-  if (isSafariPrivate) return false;
   if (getIsTelegram()) return false;
+  // TODO: Need to do Arc detection
 
-  // Targeted versions of Safari that we'll check
+  // Targeted versions of Safari that this check is valid for
   const version = getSafariVersion(ua);
   if (compare(version, minSafariVersion) < 0) return false;
+
+  // User specified max version
   if (
     maxVersion !== undefined &&
     (compare(maxVersion, minSafariVersion) < 0 ||
       compare(version, maxVersion) > 0)
   )
     return false;
+
+  // Detection for Safari 26.4+
+  // - Safari + private safari has `browser` object in window starting in 26.4, SFSVC does not
+  if (compare(version, "26.4") >= 0) {
+    return !("browser" in window) || !window.browser;
+  }
+
+  // Detection for Safari 17-26.3
+  const isSafariPrivate = await getIsSafariPrivate();
+  if (isSafariPrivate) return false;
 
   await waitForPageLoad();
   if (debug) consoleDebug({ note: "Page loaded", debug });

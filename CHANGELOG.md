@@ -1,5 +1,11 @@
 # inapp-spy
 
+## 5.0.9
+
+### Patch Changes
+
+- a91ed56: Fix SFSVC detection and Safari false positives for 26.4
+
 ## 5.0.8
 
 ### Patch Changes
