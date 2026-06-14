@@ -43,11 +43,14 @@ Machine-friendly key
 
 All except `telegram` use UA detection strategies - server or client friendly. `telegram` can only be detected client-side
 
+> `reddit` is Android only. On iOS, Reddit opens external links in an `SFSafariViewController` and does not add an app token to the user agent, so it is indistinguishable from Safari by UA. Use `SFSVCExperimental` to catch that case.
+
 - `facebook`
 - `gsa`
 - `instagram`
 - `line`
 - `linkedin`
+- `reddit`
 - `snapchat`
 - `telegram`
 - `threads`

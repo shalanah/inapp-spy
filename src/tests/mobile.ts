@@ -341,6 +341,13 @@ export const MOBILE: DeviceObj = {
           ],
         },
       ],
+      REDDIT: [
+        {
+          useragents: [
+            "Mozilla/5.0 (Linux; Android 14; Pixel 8 Build/AP2A.240905.003; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/130.0.6723.58 Mobile Safari/537.36 Reddit/Version 2024.41.0/Build 2102450/Android 14",
+          ],
+        },
+      ],
     },
     not_inapp: {
       PUFFIN: [
@@ -479,6 +486,13 @@ export const MOBILE: DeviceObj = {
         {
           useragents: [
             "Mozilla/5.0 (Linux; Android 6.0.1; Redmi Note 3 Build/MMB29M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/58.0.3029.83 Mobile Safari/537.36 Instagram 10.21.0 Android (23/6.0.1; 480dpi; 1080x1920; Xiaomi; Redmi Note 3; kate; qcom; zh_TW)",
+          ],
+        },
+      ],
+      REDDIT: [
+        {
+          useragents: [
+            "Mozilla/5.0 (Linux; Android 15; 23129RN51X Build/AP3A.240905.015.A2; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/148.0.7778.215 Mobile Safari/537.36 Reddit/Version 2026.23.0/Build 2623040/Android 15",
           ],
         },
       ],

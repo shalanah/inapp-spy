@@ -49,6 +49,10 @@ export const appNameRegExps = {
     regex: /\b(WAiOS|WA4A)\//i,
     name: "WhatsApp",
   },
+  reddit: {
+    regex: /\bReddit\//i,
+    name: "Reddit",
+  },
 } as const;
 
 export const appKeysDetectByUA = Object.keys(
